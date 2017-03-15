@@ -742,6 +742,19 @@ if (! function_exists('route')) {
     }
 }
 
+if (! function_exists('route_is')) {
+    /**
+     * Check if the given route name\names is the current route name.
+     *
+     * @param  string $urls
+     * @return boolean
+     */
+    function route_is(...$args)
+    {
+        return app('router')->is($args);
+    }
+}
+
 if (! function_exists('secure_asset')) {
     /**
      * Generate an asset path for the application.
@@ -872,6 +885,19 @@ if (! function_exists('url')) {
         }
 
         return app(UrlGenerator::class)->to($path, $parameters, $secure);
+    }
+}
+
+if (! function_exists('url_is')) {
+    /**
+     * Check if the given url\urls are the same as the current.
+     *
+     * @param  string $urls
+     * @return boolean
+     */
+    function url_is(...$args)
+    {
+        return app('request')->is($args);
     }
 }
 
